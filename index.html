@@ -957,7 +957,8 @@
 
     // Particles
     const pWrap = document.getElementById("particles");
-    const count = 120;
+    const count = window.matchMedia("(max-width: 768px)").matches ? 24 : 60;
+
 
     function rand(min,max){ return Math.random()*(max-min)+min; }
     function px(v){ return v.toFixed(1) + "px"; }
@@ -1010,7 +1011,6 @@
   </script>
 </body>
 </html>
-
 
 
 
