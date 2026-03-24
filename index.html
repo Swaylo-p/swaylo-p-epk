@@ -4,595 +4,529 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Swaylo P — EPK</title>
-  <meta name="description" content="Swaylo P — EPK: releases, private showcase, live set (radio), photos, tech rider, worldwide bookings." />
-
-  <!-- Funky fonts -->
+  <meta name="description" content="Swaylo P — EPK: Beatport  release, selected sets, productions, photos, tech rider, worldwide bookings." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
   <style>
     :root{
-      --bg0:#04040a;
-      --bg1:#080612;
-
-      --text:#f2f2ff;
-      --muted:rgba(242,242,255,.74);
-      --line:rgba(255,255,255,.14);
-
+      --bg0:#05050b;
+      --bg1:#0b0914;
+      --panel:rgba(255,255,255,.045);
+      --panel-2:rgba(255,255,255,.025);
+      --line:rgba(255,255,255,.12);
+      --text:#f3f2ff;
+      --muted:rgba(243,242,255,.72);
       --red:#ff2d55;
-      --red2:#ff0038;
-      --pink:#21b6bb;
-      --violet:#009bca;
-
-      --glassA:rgba(255,255,255,.052);
-      --glassB:rgba(255,255,255,.022);
-      --shadow: 0 24px 90px rgba(0,0,0,.62);
-      --shadow2: 0 16px 55px rgba(0,0,0,.48);
-
-      --radius: 24px;
-      --max: 1120px;
+      --cyan:#1fc9d2;
+      --shadow:0 18px 50px rgba(0,0,0,.42);
+      --radius:22px;
+      --radius-sm:16px;
+      --max:1120px;
+      --space:18px;
     }
-.embedBox iframe{
-  margin: 0 auto;
-}
+
     *{ box-sizing:border-box; }
-    html,body{ height:100%; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       color:var(--text);
-      background:
-        radial-gradient(900px 520px at 18% 8%, rgba(255,45,85,.18), transparent 60%),
-        radial-gradient(800px 520px at 82% 10%, rgba(255,0,56,.14), transparent 60%),
-        radial-gradient(760px 520px at 70% 80%, rgba(124,58,237,.12), transparent 60%),
-        linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 45%, var(--bg0) 100%);
-      font-family:"Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      line-height: 1.55;
+      font-family:"Space Grotesk",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.55;
       overflow-x:hidden;
+      background:
+        radial-gradient(850px 480px at 12% 0%, rgba(255,45,85,.14), transparent 62%),
+        radial-gradient(780px 420px at 100% 10%, rgba(31,201,210,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0) 0%, var(--bg1) 50%, var(--bg0) 100%);
     }
 
-    /* subtle grain */
-    body:before{
+    body::before{
       content:"";
-      position:fixed; inset:0;
+      position:fixed;
+      inset:0;
       pointer-events:none;
+      opacity:.08;
+      mix-blend-mode:overlay;
       background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E");
-      mix-blend-mode: overlay;
-      opacity:.14;
-      z-index:0;
     }
 
     a{ color:inherit; text-decoration:none; }
-    a:hover{ text-decoration:underline; text-decoration-color: rgba(255,45,85,.75); }
+    img{ max-width:100%; display:block; }
 
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 26px 18px 86px;
-      position:relative;
-      z-index:2;
-    }
-
-    /* background blur blobs */
     .blob{
       position:fixed;
-      width:540px; height:540px;
+      width:420px;
+      height:420px;
       border-radius:50%;
-      filter: blur(60px);
-      opacity:.18;
-      mix-blend-mode: screen;
+      filter:blur(70px);
+      opacity:.12;
       pointer-events:none;
+      z-index:0;
+    }
+    .b1{ top:-140px; left:-180px; background:radial-gradient(circle, rgba(255,45,85,.9), transparent 65%); }
+    .b2{ top:40px; right:-180px; background:radial-gradient(circle, rgba(31,201,210,.85), transparent 65%); }
+    .b3{ right:-150px; bottom:-180px; background:radial-gradient(circle, rgba(110,91,255,.75), transparent 65%); }
+
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+      padding:24px 0 72px;
+      position:relative;
       z-index:1;
     }
-    .blob.b1{ left:-240px; top:-160px; background: radial-gradient(circle at 30% 30%, var(--red), transparent 62%); }
-    .blob.b2{ right:-270px; top:10px;  background: radial-gradient(circle at 60% 40%, var(--pink), transparent 62%); }
-    .blob.b3{ right:-260px; bottom:-260px; background: radial-gradient(circle at 40% 60%, var(--violet), transparent 66%); }
 
-    /* floating particles layer */
-    .particles{
-      position:fixed; inset:0;
-      pointer-events:none;
-      z-index:1;
-      overflow:hidden;
-    }
-    .p{
-      position:absolute;
-      border-radius:999px;
-      background: radial-gradient(circle, rgba(255,45,85,.75), rgba(255,45,85,0));
-      filter: blur(.2px);
-      opacity:.65;
-      animation: drift var(--dur) linear infinite;
-      will-change: transform;
-    }
-    @keyframes drift{
-      0%   { transform: translate3d(var(--x0), var(--y0), 0) scale(var(--s)); opacity: 0; }
-      10%  { opacity: var(--o); }
-      70%  { opacity: var(--o); }
-      100% { transform: translate3d(var(--x1), var(--y1), 0) scale(var(--s)); opacity: 0; }
-    }
-
-    /* GLASS */
     .glass{
       position:relative;
-      background: linear-gradient(180deg, var(--glassA), var(--glassB));
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      overflow:hidden;
+      background:linear-gradient(180deg, var(--panel), var(--panel-2));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
     }
 
-    /* animated shine sweep */
-    .glass:before{
-      content:"";
-      position:absolute;
-      inset:-60%;
-      background:
-        linear-gradient(120deg,
-          transparent 40%,
-          rgba(255,255,255,.20) 50%,
-          transparent 60%);
-      transform: translateX(-40%) rotate(10deg);
-      animation: shine 4.9s ease-in-out infinite;
-      pointer-events:none;
-      opacity:.75;
-    }
-    @keyframes shine{
-      0%   { transform: translateX(-55%) rotate(10deg); opacity:0; }
-      15%  { opacity:.90; }
-      50%  { opacity:.55; }
-      85%  { opacity:.90; }
-      100% { transform: translateX(55%) rotate(10deg); opacity:0; }
-    }
-
-    /* topbar */
     .topbar{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:14px;
-      padding: 14px 16px;
-      margin-bottom: 18px;
+      gap:16px;
+      padding:16px 18px;
+      margin-bottom:18px;
     }
 
     .brand{
       display:flex;
       align-items:center;
       gap:12px;
-      min-width: 320px;
+      min-width:0;
     }
+
     .sig{
-      width:42px;height:42px;
+      width:42px;
+      height:42px;
       border-radius:14px;
+      flex:0 0 42px;
       background:
-        radial-gradient(circle at 30% 30%, rgba(255,45,85,.95), rgba(255,0,56,.20)),
-        linear-gradient(135deg, rgba(255,255,255,.10), rgba(255,255,255,0));
-      border:1px solid rgba(255,255,255,.16);
-      box-shadow: 0 10px 40px rgba(255,0,56,.20);
+        radial-gradient(circle at 30% 30%, rgba(255,45,85,.95), rgba(255,45,85,.10)),
+        linear-gradient(135deg, rgba(255,255,255,.10), transparent);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow:0 8px 30px rgba(255,45,85,.18);
     }
+
+    .brand h1,
+    .brand .tag,
+    .sectionTitle,
+    .value,
+    .prodCard h3,
+    .setCard h3,
+    .heroTitle{
+      position:relative;
+      z-index:1;
+    }
+
     .brand h1{
       margin:0;
-      font-family:"Unbounded", system-ui;
-      font-weight:700;
-      letter-spacing:.4px;
-      font-size: 18px;
-      line-height:1.1;
+      font-family:"Unbounded",system-ui;
+      font-size:18px;
+      line-height:1.05;
+      letter-spacing:.3px;
     }
+
     .brand .tag{
-      margin:2px 0 0;
-      font-size: 12.8px;
-      color: var(--muted);
+      margin-top:3px;
+      font-size:12.5px;
+      color:var(--muted);
     }
 
     .nav{
       display:flex;
-      gap:10px;
       flex-wrap:wrap;
       justify-content:flex-end;
-    }
-    .nav a{
-      padding: 8px 10px;
-      border-radius: 12px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.16);
-      font-size: 13px;
-      color: rgba(242,242,255,.86);
-    }
-    .nav a:hover{
-      text-decoration:none;
-      border-color: rgba(255,45,85,.40);
-      box-shadow: 0 18px 55px rgba(255,45,85,.08);
-    }
-
-    /* hero */
-    .hero{
-      display:grid;
-      grid-template-columns: 1.12fr .88fr;
-      gap: 18px;
-      margin-bottom: 18px;
-    }
-    .heroCard{ padding: 22px; }
-    .kicker{
-      display:inline-flex; align-items:center; gap:10px;
-      padding: 8px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.14);
-      font-size: 13px;
-      color: rgba(242,242,255,.86);
-      position:relative; z-index:2;
-    }
-    .dot{
-      width:8px;height:8px;border-radius:50%;
-      background: var(--red);
-      box-shadow: 0 0 0 6px rgba(255,45,85,.14);
-    }
-    .heroTitle{
-      margin: 14px 0 8px;
-      font-family:"Unbounded", system-ui;
-      font-size: 46px;
-      line-height: 1.05;
-      letter-spacing:.2px;
-      position:relative; z-index:2;
-    }
-    .heroTitle .glow{
-      background: linear-gradient(90deg, rgba(255,45,85,1), rgba(6, 226, 255, 0.92), rgba(242,242,255,.92));
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-      filter: drop-shadow(0 10px 34px rgba(255,0,56,.18));
-    }
-    .heroSub{
-      margin:0 0 12px;
-      color: var(--muted);
-      font-size: 15.9px;
-      max-width: 70ch;
-      position:relative; z-index:2;
-    }
-
-    .ctaRow{ display:flex; flex-wrap:wrap; gap:10px; margin-top: 14px; position:relative; z-index:2; }
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding: 10px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.14);
-      color: rgba(242,242,255,.92);
-      font-size: 13.5px;
-      box-shadow: var(--shadow2);
-      transition: .18s ease;
-    }
-    .btn:hover{
-      text-decoration:none;
-      border-color: rgba(255,45,85,.44);
-      box-shadow: 0 18px 60px rgba(255,45,85,.10);
-      transform: translateY(-1px);
-    }
-    .btn.primary{
-      border-color: rgba(255,45,85,.52);
-      background: linear-gradient(135deg, rgba(255,45,85,.24), rgba(0,0,0,.10));
-    }
-
-    /* audio player */
-    .player{
-      margin-top: 14px;
-      padding: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.12);
-      position:relative; z-index:2;
-    }
-    .playerTop{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      margin-bottom: 8px;
-    }
-    .playerTitle{
-      font-family:"Unbounded", system-ui;
-      font-size: 13px;
-      letter-spacing:.2px;
-      margin:0;
-    }
-    .playerHint{
-      font-size: 12.5px;
-      color: rgba(242,242,255,.70);
-      margin:0;
-    }
-    audio{ width:100%; }
-
-    /* right side quick cards */
-    .miniGrid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-      align-self:stretch;
-    }
-    .stat{
-      padding: 14px;
-      border-radius: 20px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.12);
-      position:relative;
-      overflow:hidden;
-    }
-    .stat:after{
-      content:"";
-      position:absolute; inset:-2px;
-      background: radial-gradient(260px 170px at 25% 10%, rgba(255,45,85,.16), transparent 70%);
-      opacity:.9;
-      pointer-events:none;
-    }
-    .label{ color: rgba(242,242,255,.70); font-size: 12px; margin:0 0 6px; position:relative; z-index:2; }
-    .value{ margin:0; font-family:"Unbounded", system-ui; font-size: 18px; position:relative; z-index:2; }
-    .hint{ margin:6px 0 0; font-size: 12px; color: rgba(242,242,255,.66); position:relative; z-index:2; }
-
-    /* sections */
-    section{ margin-top: 18px; }
-    .sectionCard{ padding: 18px; }
-    .sectionTitle{
-      margin:0 0 10px;
-      font-family:"Unbounded", system-ui;
-      font-size: 16px;
-      letter-spacing:.2px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      position:relative; z-index:2;
-    }
-    .pill{
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius:999px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.12);
-      color: rgba(242,242,255,.74);
-      font-family:"Space Grotesk", system-ui;
-    }
-    .hr{
-      height:1px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
-      margin: 12px 0 14px;
-      position:relative; z-index:2;
-    }
-    p{ margin: 0 0 12px; color: rgba(242,242,255,.86); position:relative; z-index:2; }
-    .muted{ color: var(--muted); }
-
-    .grid2{ display:grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .grid3{ display:grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-
-    /* chips */
-    .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px; position:relative; z-index:2; }
-    .chip{
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.12);
-      color: rgba(242,242,255,.78);
-      font-size: 12.5px;
-      display:inline-flex;
-      align-items:center;
       gap:8px;
     }
 
- /* carousel */
-.carousel{ padding: 16px; }
+    .nav a,
+    .btn,
+    .chip,
+    .pill,
+    .cardTap{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.14);
+    }
 
-.carouselFrame{
-  position:relative;
-  border-radius: calc(var(--radius) - 6px);
-  border:1px solid rgba(255,255,255,.14);
-  overflow:hidden;
-  background: rgba(0,0,0,.14);
-  box-shadow: var(--shadow2);
+    .nav a{
+      padding:8px 11px;
+      border-radius:12px;
+      font-size:13px;
+      color:rgba(243,242,255,.88);
+      transition:.18s ease;
+    }
 
-  /* ✅ stable height so it won’t jump */
-  aspect-ratio: 2 / 3;     /* portrait friendly */
-  width: 100%;
-  max-height: 760px;       /* optional */
-}
+    .nav a:hover,
+    .btn:hover,
+    .prodCard:hover,
+    .setCard:hover{
+      border-color:rgba(255,45,85,.34);
+      transform:translateY(-1px);
+    }
 
-.slides{
-  display:flex;
-  transition: transform .55s ease;
-  height: 100%;
-}
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);
+      gap:18px;
+      margin-bottom:18px;
+      align-items:stretch;
+    }
 
-.slide{
-  min-width:100%;
-  height:100%;
-  padding: 10px;
-  background: rgba(0,0,0,.08);
+    .heroCard,
+    .sectionCard{ padding:20px; }
 
-  /* ✅ centers image inside slide */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
+    .heroTitle{
+      margin:0 0 12px;
+      font-family:"Unbounded",system-ui;
+      font-size:46px;
+      line-height:1.04;
+      letter-spacing:.2px;
+    }
 
-/* ✅ image is smaller but centered */
-.slide img{
-  max-width: 100%;
-  max-height: 100%;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display:block;
+    .glow{
+      background:linear-gradient(90deg, rgba(255,45,85,1), rgba(31,201,210,.95), rgba(243,242,255,.96));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
 
-  border-radius: 18px;
-  border:1px solid rgba(255,255,255,.12);
-  box-shadow: 0 18px 60px rgba(0,0,0,.45);
-  background: rgba(0,0,0,.22);
-}
-
-.slide:after{ content:none; }
-
-.carControls{
-  position:absolute; inset:0;
-  display:flex; align-items:center; justify-content:space-between;
-  padding: 0 10px;
-  pointer-events:none;
-  z-index:3;
-}
-
-.carBtn{
-  pointer-events:auto;
-  width:42px;height:42px;
-  border-radius: 14px;
-  border:1px solid rgba(255,255,255,.16);
-  background: rgba(0,0,0,.14);
-  color: rgba(242,242,255,.92);
-  display:grid; place-items:center;
-  box-shadow: var(--shadow2);
-  cursor:pointer;
-  user-select:none;
-  transition: .18s ease;
-}
-
-.carBtn:hover{
-  border-color: rgba(255,45,85,.44);
-  box-shadow: 0 18px 60px rgba(255,45,85,.10);
-  transform: translateY(-1px);
-}
-
-.dots{
-  display:flex;
-  gap:8px;
-  justify-content:center;
-  margin-top: 12px;
-  position:relative; z-index:2;
-}
-
-.dotBtn{
-  width:10px;height:10px;border-radius:999px;
-  border:1px solid rgba(255,255,255,.18);
-  background: rgba(255,255,255,.08);
-  cursor:pointer;
-}
-
-.dotBtn.active{
-  background: rgba(255,45,85,.78);
-  border-color: rgba(255,45,85,.60);
-  box-shadow: 0 0 0 6px rgba(255,45,85,.12);
-}
-
-
-    /* embeds */
-    .embedStack{ display:flex; flex-direction:column; gap:12px; position:relative; z-index:2; }
-    .embedBox{
-      border-radius: 16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.12);
-      padding: 12px;
-      overflow:hidden;
-      box-shadow: var(--shadow2);
+    .heroSub,
+    p,
+    .muted,
+    .label,
+    .hint,
+    .prodMeta,
+    .setMeta,
+    .bullet,
+    .embedStack{
       position:relative;
-      z-index:2;
+      z-index:1;
     }
+
+    .heroSub{
+      margin:0;
+      max-width:65ch;
+      color:var(--muted);
+      font-size:15.8px;
+    }
+
+    .ctaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:16px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:42px;
+      padding:10px 14px;
+      border-radius:14px;
+      box-shadow:0 10px 26px rgba(0,0,0,.20);
+      color:rgba(243,242,255,.92);
+      font-size:13.5px;
+      transition:.18s ease;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(255,45,85,.22), rgba(255,45,85,.08));
+      border-color:rgba(255,45,85,.40);
+    }
+
+    .miniGrid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+      align-self:stretch;
+    }
+
+    .stat,
+    .prodCard,
+    .setCard,
+    .embedBox{
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.12);
+      box-shadow:0 12px 30px rgba(0,0,0,.18);
+    }
+
+    .stat{ padding:14px; }
+    .prodCard,
+    .setCard{
+      display:block;
+      padding:16px;
+      min-height:132px;
+      transition:.18s ease;
+    }
+
+    .stat::after,
+    .prodCard::after,
+    .setCard::after{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:radial-gradient(250px 150px at 20% 0%, rgba(255,45,85,.12), transparent 70%);
+      pointer-events:none;
+    }
+
+    .label{
+      margin:0 0 6px;
+      font-size:12px;
+      color:rgba(243,242,255,.68);
+    }
+
+    .value{
+      margin:0;
+      font-family:"Unbounded",system-ui;
+      font-size:18px;
+      line-height:1.2;
+    }
+
+    .hint{
+      margin:6px 0 0;
+      font-size:12px;
+      color:rgba(243,242,255,.62);
+    }
+
+    section{ margin-top:18px; }
+
+    .sectionTitle{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      gap:10px;
+      margin:0 0 10px;
+      font-family:"Unbounded",system-ui;
+      font-size:16px;
+      letter-spacing:.2px;
+      line-height:1.3;
+    }
+
+    .pill,
+    .chip,
+    .cardTap{
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      color:rgba(243,242,255,.78);
+    }
+
+    .pill{ padding:5px 10px; font-size:12px; }
+    .chip{ padding:7px 10px; font-size:12.5px; gap:8px; }
+    .cardTap{ padding:6px 10px; font-size:12px; margin-top:8px; }
+
+    .hr{
+      height:1px;
+      margin:12px 0 14px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+    }
+
+    p{ margin:0 0 12px; color:rgba(243,242,255,.88); }
+    p:last-child{ margin-bottom:0; }
+    .muted{ color:var(--muted); }
+
+    .grid2,
+    .grid3,
+    .grid4{
+      display:grid;
+      gap:18px;
+    }
+    .grid2{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .grid3{ grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+    .grid4{ grid-template-columns:repeat(2, minmax(0,1fr)); gap:12px; }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:14px;
+    }
+
+    .carousel{ padding:16px; }
+    .carouselFrame{
+      position:relative;
+      width:100%;
+      aspect-ratio:2 / 3;
+      max-height:760px;
+      overflow:hidden;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(0,0,0,.14);
+    }
+
+    .slides{ display:flex; height:100%; transition:transform .5s ease; }
+    .slide{
+      min-width:100%;
+      height:100%;
+      padding:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .slide img{
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:100%;
+      object-fit:contain;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(0,0,0,.2);
+    }
+
+    .carControls{
+      position:absolute;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 10px;
+      pointer-events:none;
+    }
+
+    .carBtn{
+      pointer-events:auto;
+      width:40px;
+      height:40px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.20);
+      color:rgba(243,242,255,.92);
+      cursor:pointer;
+      user-select:none;
+      transition:.18s ease;
+    }
+
+    .dots{
+      display:flex;
+      justify-content:center;
+      gap:8px;
+      margin-top:12px;
+    }
+
+    .dotBtn{
+      width:10px;
+      height:10px;
+      border-radius:50%;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.08);
+      cursor:pointer;
+    }
+
+    .dotBtn.active{
+      background:rgba(255,45,85,.82);
+      border-color:rgba(255,45,85,.5);
+      box-shadow:0 0 0 5px rgba(255,45,85,.10);
+    }
+
+    .embedStack{ display:flex; flex-direction:column; gap:12px; }
+
+    .embedBox{ padding:12px; }
     .embedBox iframe{
-  display:block;
-  width: min(760px, 100%);
-  aspect-ratio: 16 / 9;
-  height: auto;
-  margin: 0 auto;
-  border:0;
-  border-radius: 12px;
-}
+      display:block;
+      width:min(760px, 100%);
+      aspect-ratio:16 / 9;
+      margin:0 auto;
+      border:0;
+      border-radius:12px;
+    }
 
-    /* bullets */
-    .bullet{ margin:0; padding-left: 18px; color: rgba(242,242,255,.86); position:relative; z-index:2; }
-    .bullet li{ margin: 8px 0; }
+    .prodCard h3,
+    .setCard h3{
+      margin:0 0 8px;
+      font-size:15px;
+      line-height:1.35;
+      font-family:"Unbounded",system-ui;
+    }
 
-    /* footer */
+    .prodMeta,
+    .setMeta{
+      margin:0;
+      font-size:12.5px;
+      color:rgba(243,242,255,.66);
+    }
+
+    .bullet{ margin:0; padding-left:18px; color:rgba(243,242,255,.86); }
+    .bullet li{ margin:8px 0; }
+    .bullet li:last-child{ margin-bottom:0; }
+
     footer{
-      margin-top: 18px;
-      padding: 18px;
+      margin-top:18px;
+      padding:16px;
       text-align:center;
-      color: rgba(242,242,255,.62);
-      font-size: 12.5px;
+      font-size:12.5px;
+      color:rgba(243,242,255,.62);
     }
 
-    /* responsive */
-    @media (max-width: 920px){
-      .hero{ grid-template-columns: 1fr; }
-      .miniGrid{ grid-template-columns: 1fr 1fr; }
-      .grid2{ grid-template-columns: 1fr; }
-      .grid3{ grid-template-columns: 1fr; }
-      .heroTitle{ font-size: 40px; }
-    }
-    @media (max-width: 520px){
-      .miniGrid{ grid-template-columns: 1fr; }
-      .heroTitle{ font-size: 34px; }
+    @media (max-width: 980px){
+      .topbar,
+      .hero,
+      .grid2,
+      .grid3,
+      .grid4{
+        grid-template-columns:1fr;
+      }
+      .topbar{
+        flex-direction:column;
+        align-items:flex-start;
+      }
       .nav{ justify-content:flex-start; }
+      .heroTitle{ font-size:40px; }
     }
-    @media (max-width: 520px){
-  /* HERO becomes a normal full-width section, not “hero-sized” */
-  .hero{ 
-    grid-template-columns: 1fr; 
-    gap: 12px;
-    margin-bottom: 12px;
-  }
 
-  /* Make the first card behave like Bookings: content height only */
-  .heroCard{
-    padding: 16px;          /* was 22px */
-  }
+    @media (max-width: 640px){
+      .wrap{ width:min(var(--max), calc(100% - 24px)); padding-top:18px; }
+      .heroCard,
+      .sectionCard{ padding:16px; }
+      .topbar{ padding:14px; }
+      .heroTitle{ font-size:32px; margin-bottom:10px; }
+      .heroSub{ font-size:14.5px; }
+      .ctaRow{ gap:8px; }
+      .btn{ width:100%; justify-content:center; }
+      .miniGrid{
+        display:flex;
+        overflow-x:auto;
+        gap:10px;
+        padding-bottom:4px;
+        scroll-snap-type:x proximity;
+      }
+      .miniGrid .stat{
+        min-width:220px;
+        flex:0 0 auto;
+        scroll-snap-align:start;
+      }
+      .carouselFrame{ aspect-ratio:4 / 5; }
+    }
 
-  /* Reduce the big title */
-  .heroTitle{
-    font-size: 32px;        /* was 34px */
-    margin: 8px 0 6px;
-    line-height: 1.08;
-  }
-
-  /* Reduce paragraph size a bit */
-  .heroSub{
-    font-size: 14.5px;
-    margin-bottom: 10px;
-  }
-
-  /* Buttons wrap nicer and don’t create huge height */
-  .ctaRow{
-    gap: 8px;
-    margin-top: 10px;
-  }
-  .btn{
-    padding: 9px 12px;
-    font-size: 13px;
-  }
-
-  /* OPTIONAL but recommended:
-     stats under hero are what makes it feel “too big”.
-     Make them horizontal scroll instead of adding lots of height */
-  .miniGrid{
-    display: flex;
-    gap: 10px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-  .miniGrid .stat{
-    min-width: 220px;       /* each stat becomes a card you swipe */
-    scroll-snap-align: start;
-    flex: 0 0 auto;
-  }
-}
-
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .slides,
+      .carBtn,
+      .nav a,
+      .btn,
+      .prodCard,
+      .setCard{ transition:none; }
+    }
   </style>
 </head>
-
 <body>
   <div class="blob b1"></div>
   <div class="blob b2"></div>
   <div class="blob b3"></div>
 
-  <!-- Particle field -->
-  <div class="particles" aria-hidden="true" id="particles"></div>
-
   <div class="wrap">
-
-    <!-- TOPBAR -->
     <div class="topbar glass">
       <div class="brand">
         <div class="sig" aria-hidden="true"></div>
@@ -601,10 +535,10 @@
           <div class="tag">DJ • Producer</div>
         </div>
       </div>
-
       <nav class="nav" aria-label="EPK navigation">
         <a href="#music">Music</a>
-        <a href="#live">Live set</a>
+        <a href="#productions">Productions</a>
+        <a href="#sets">On Decks</a>
         <a href="#highlights">Highlights</a>
         <a href="#bio">Bio</a>
         <a href="#photos">Photos</a>
@@ -613,35 +547,20 @@
       </nav>
     </div>
 
-    <!-- HERO -->
     <div class="hero">
       <div class="heroCard glass">
-        
-
-        <h2 class="heroTitle">
-          <span class="glow">Swaylo P</span><br/>
-          
-        </h2>
-
+        <h2 class="heroTitle"><span class="glow">Swaylo P</span></h2>
         <p class="heroSub">
           Built in the Bucharest underground — groove-led sets and original productions made for late-night rooms,
           afterhours pressure, and festival systems. Calm presence, controlled pacing, and a clean low-end.
         </p>
-
         <div class="ctaRow">
           <a class="btn primary" href="#contact">Book (Fly-in)</a>
-          <a class="btn" href="#music">Listen (Releases)</a>
-          <a class="btn" href="#music">Request Private Showcase</a>
-          <a class="btn" href="https://www.youtube.com/@SwayloP" target="_blank" rel="noopener">Youtube: @swaylo.p</a>
+          <a class="btn" href="#music">Listen (Beatport )</a>
+          <a class="btn" href="#productions">Browse Productions</a>
+          <a class="btn" href="#sets">On Decks</a>
+          <a class="btn" href="https://www.youtube.com/@SwayloP" target="_blank" rel="noopener">YouTube: @SwayloP</a>
           <a class="btn" href="https://instagram.com/swaylo.p" target="_blank" rel="noopener">Instagram: @swaylo.p</a>
-        </div>
-
-        
-
-
-
-        <div class="chips" aria-label="Quick facts">
-          
         </div>
       </div>
 
@@ -651,19 +570,16 @@
           <p class="value">Fly-in</p>
           <p class="hint">worldwide • selective • paid</p>
         </div>
-
         <div class="stat glass">
-          <div class="label">Release</div>
-          <p class="value">2-track EP</p>
-          <p class="hint">Deeper Dub Records (Brazil)</p>
+          <div class="label">Credibility release</div>
+          <p class="value">Funky Way EP</p>
+          <p class="hint">Beatport • deeperdub</p>
         </div>
-
         <div class="stat glass">
-          <div class="label">Residency</div>
-          <p class="value">Emerald</p>
-          <p class="hint">Old Town, Bucharest • nearly 1 year</p>
+          <div class="label">Sound</div>
+          <p class="value">Minimal / Tech</p>
+          <p class="hint">groove-led • hypnotic • club-driven</p>
         </div>
-
         <div class="stat glass">
           <div class="label">Set style</div>
           <p class="value">Long-form flow</p>
@@ -672,134 +588,121 @@
       </div>
     </div>
 
-    <!-- PHOTOS / CAROUSEL -->
-<section id="photos" class="glass sectionCard carousel">
-  <div class="sectionTitle">
-    Photos
-  </div>
-
-  <div class="carouselFrame" aria-label="Photo carousel">
-    <div class="slides" id="slides">
-      <div class="slide">
-        <img src="images/01.webp" alt="Swaylo P press photo 1" />
+    <section id="photos" class="glass sectionCard carousel">
+      <div class="sectionTitle">Photos</div>
+      <div class="carouselFrame" aria-label="Photo carousel">
+        <div class="slides" id="slides">
+          <div class="slide"><img src="images/01.webp" alt="Swaylo P press photo 1" /></div>
+          <div class="slide"><img src="images/02.webp" alt="Swaylo P press photo 2" /></div>
+          <div class="slide"><img src="images/03.webp" alt="Swaylo P press photo 3" /></div>
+        </div>
+        <div class="carControls">
+          <button class="carBtn" id="prev" aria-label="Previous slide">‹</button>
+          <button class="carBtn" id="next" aria-label="Next slide">›</button>
+        </div>
       </div>
-      <div class="slide">
-        <img src="images/02.webp" alt="Swaylo P press photo 2" />
-      </div>
-      <div class="slide">
-        <img src="images/03.webp" alt="Swaylo P press photo 3" />
-      </div>
-    </div>
+      <div class="dots" id="dots" aria-label="Carousel dots"></div>
+    </section>
 
-    <div class="carControls">
-      <div class="carBtn" id="prev" aria-label="Previous slide">‹</div>
-      <div class="carBtn" id="next" aria-label="Next slide">›</div>
-    </div>
-  </div>
-
-  <div class="dots" id="dots" aria-label="Carousel dots"></div>
-</section>
-
-    <!-- MUSIC -->
     <section id="music" class="grid2">
       <div class="glass sectionCard">
-        <div class="sectionTitle">
-          Releases
-        </div>
+        <div class="sectionTitle">Beatport Release</div>
         <div class="hr"></div>
-
         <div class="embedStack">
           <div class="embedBox">
-            <div class="muted" style="margin:0 0 8px;">EP Track 1</div>
-            <iframe src="https://embed.beatport.com/?id=22715266&type=track" height="162" scrolling="no" style="max-width:600px;"></iframe>
+            <div class="muted" style="margin:0 0 8px;">Funky Way</div>
+            <iframe src="https://embed.beatport.com/?id=22715266&type=track" title="Funky Way" height="162" scrolling="no" style="max-width:600px;"></iframe>
           </div>
-
           <div class="embedBox">
-            <div class="muted" style="margin:0 0 8px;">EP Track 2</div>
-            <iframe src="https://embed.beatport.com/?id=22715267&type=track" height="162" scrolling="no" style="max-width:600px;"></iframe>
+            <div class="muted" style="margin:0 0 8px;">Long Ago</div>
+            <iframe src="https://embed.beatport.com/?id=22715267&type=track" title="Long Ago" height="162" scrolling="no" style="max-width:600px;"></iframe>
           </div>
         </div>
-
-        <div class="chips" style="margin-top:14px;">
-          <span class="chip">Label: Deeper Dub Records (Brazil)</span>
+        <div class="chips">
+          <span class="chip">Label: deeperdub</span>
           <span class="chip">Original productions</span>
           <span class="chip">Big-system ready</span>
         </div>
       </div>
 
       <div class="glass sectionCard">
-        <div class="sectionTitle">
-          Private Showcase
+        <div class="sectionTitle">Quick Access</div>
+        <div class="hr"></div>
+        <p class="muted">Official links, music and current updates.</p>
+        <div class="ctaRow">
+          <a class="btn primary" href="https://linktr.ee/patricianptk" target="_blank" rel="noopener">Linktree</a>
+          <a class="btn" href="#productions">Productions</a>
+          <a class="btn" href="#sets">Sets</a>
         </div>
-        <div class="hr"></div>
+        
+      </div>
+    </section>
 
-        <p class="muted">
-          Showcase album (unreleased tracks).
-        </p>
+    <section id="productions" class="glass sectionCard">
+      <div class="sectionTitle">Productions</div>
+      <div class="hr"></div>
+      <p class="muted">Selected original releases and edits.</p>
+      <div class="grid4">
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/album/orion-signals"><h3>Orion Signals</h3><p class="prodMeta">Bandcamp album</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/album/fan-tasy"><h3>Fan Tasy</h3><p class="prodMeta">Bandcamp album</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/dude-in-shorts"><h3>Dude in shorts</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/shook-ones-swaylo-p-special-edit"><h3>Shook Ones (Swaylo P Special Edit)</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/mimosa-2000-edit"><h3>Mimosa 2000 Edit</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/up-to-lightspeed"><h3>Up to Lightspeed</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/on-repeat"><h3>On Repeat</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/chemical"><h3>Chemical</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/sound-of-the-sun"><h3>Sound of The Sun</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/la-dovleci"><h3>La Dovleci</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/sidelines"><h3>Sidelines</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/noncommercial"><h3>Noncommercial</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/magic"><h3>Magic</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/get-ready"><h3>Get Ready</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+        <a class="prodCard" target="_blank" rel="noopener" href="https://pswaylo.bandcamp.com/track/im-already-gone"><h3>I'm Already Gone</h3><p class="prodMeta">Bandcamp track</p><span class="cardTap">open</span></a>
+      </div>
+    </section>
 
-        <a class="btn primary" href="https://on.soundcloud.com/0drZGBaGMA1ukfWSLE" target="_blank" rel="noopener">
-          Open private SoundCloud link
+    <section id="sets" class="glass sectionCard">
+      <div class="sectionTitle">On Decks</div>
+      <div class="hr"></div>
+      <p class="muted">Selected recorded sets and live sessions.</p>
+      <div class="grid4">
+        <a class="setCard" target="_blank" rel="noopener" href="https://youtu.be/b8NKJ09QazY?si=tKRIC-wjwskdz5QF">
+          <h3>Minimal Deep DJ Set</h3>
+          <p class="setMeta">SaFitiCumintiGallery @ Coworkperativa • YouTube</p>
+          <span class="cardTap">play</span>
         </a>
-
-        <div class="hr"></div>
-
-        <p style="margin-bottom:10px;">
-          <b>For festivals / promoters / labels:</b> full WAV pack + private streaming access available on request.
-        </p>
-
-        <ul class="bullet">
-          <li>Some unreleased stuff</li>
-          <li>Groove-led, hypnotic rhythm language (minimal / deep tech leaning)</li>
-          <li>Designed for coherent long-form flow</li>
-        </ul>
+        <a class="setCard" target="_blank" rel="noopener" href="https://youtu.be/svvKjA2oFY4?si=q1IaqfXhKRFaqQlg">
+          <h3>Minimal Deep DJ Set</h3>
+          <p class="setMeta">SaFitiCumintiGallery @ Hidden – The Social Space • YouTube</p>
+          <span class="cardTap">play</span>
+        </a>
+        <a class="setCard" target="_blank" rel="noopener" href="https://youtu.be/W6Jn7fEphzY?si=spZzn-QTv6wdU7rC">
+          <h3>Solo Ridin' 001</h3>
+          <p class="setMeta">Swaylo P • YouTube</p>
+          <span class="cardTap">play</span>
+        </a>
+        <a class="setCard" target="_blank" rel="noopener" href="https://www.youtube.com/live/L86M5-AB7ug?si=U-_7xcFNDfaSRhfa">
+          <h3>We Be Clubbin' Radio Show ep.38</h3>
+          <p class="setMeta">Swaylo P & Shar-K • House / Radio DEEA • YouTube Live</p>
+          <span class="cardTap">play</span>
+        </a>
+        <a class="setCard" target="_blank" rel="noopener" href="https://www.youtube.com/live/3GcJn6fqY9s?si=fwvbRf4DywOIbqlN">
+          <h3>We Be Clubbin' Radio Show ep.27</h3>
+          <p class="setMeta">Swaylo P • House / Radio DEEA • YouTube Live</p>
+          <span class="cardTap">play</span>
+        </a>
       </div>
     </section>
 
-    <!-- LIVE SET (single) -->
-    <section id="live" class="glass sectionCard">
-      <div class="sectionTitle">
-        Live Set
-      </div>
-      <div class="hr"></div>
-
-      <p class="muted">
-        A live recorded radio set — clean pacing, controlled pressure, and long-form flow.
-      </p>
-
-      <div class="embedBox">
-        <div class="muted" style="margin:0 0 8px;">Live set (Radio Deea)</div>
-        <iframe
-          src="https://www.youtube.com/embed/L86M5-AB7ug?si=O82NokWme6fCbp0U"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin"
-          allowfullscreen>
-        </iframe>
-      </div>
-
-      <div class="chips">
-        <span class="chip">Extended sets</span>
-        <span class="chip">Afterhours-ready</span>
-        <span class="chip">Festival-ready</span>
-      </div>
-    </section>
-
-    <!-- HIGHLIGHTS -->
     <section class="glass sectionCard" id="highlights">
-      <div class="sectionTitle">
-        Highlights
-      </div>
+      <div class="sectionTitle">Highlights</div>
       <div class="hr"></div>
-
       <ul class="bullet">
-        <li><b>Residency:</b> nearly 1 year at Emerald (Old Town, Bucharest) — every weekend night.</li>
-        <li><b>Release:</b> 2-track EP on Deeper Dub Records (Brazil).</li>
-        <li><b>Showcase:</b> private unreleased selection (available on request).</li>
-        <li><b>Live set:</b> radio-recorded performance (video above).</li>
+        <li><b>Beatport release:</b> Funky Way EP on deeperdub.</li>
+        <li><b>Production catalog:</b> extended Bandcamp catalog linked directly inside the EPK.</li>
+        <li><b>Sets:</b> multiple current On Decks links replace the old single set embed.</li>
         <li><b>Bookings:</b> fly-in guest appearances • afterhours authority • selective.</li>
       </ul>
-
       <div class="chips">
         <span class="chip">Crowd reading</span>
         <span class="chip">Tension control</span>
@@ -808,254 +711,142 @@
       </div>
     </section>
 
-   <!-- BIO -->
-<section id="bio" class="glass sectionCard">
-  <div class="sectionTitle">
-    Bio
-  </div>
-  <div class="hr"></div>
-
-  <p>
-    Born in Valea Jiului and shaped by the underground culture of Bucharest, Swaylo P is a DJ and producer with a clear artistic direction rooted in groove, control, and long-form storytelling.
-  </p>
-
-  <p>
-    His evolution came through constant club exposure, building experience night after night and refining his sound through real dancefloor interaction. His sets sit in a modern club language where minimal, deep tech, and driving dancefloor rhythms connect naturally, with a strong focus on flow rather than peak-chasing.
-  </p>
-
-  <p>
-    A nearly year-long residency at Emerald in Bucharest’s Old Town played a key role in shaping his identity, developing crowd reading, pacing, and endurance through extended weekend sessions. This period solidified his ability to manage long sets with consistency, tension control, and clean low-end discipline.
-  </p>
-
-  <p>
-    Alongside his DJ work, Swaylo P is actively producing original music designed for club and afterhours systems, releasing material internationally and preparing a wider body of unreleased work for selective showcases, labels, and promoters.
-  </p>
-
-  <p>
-    Today, he operates with a selective fly-in approach, focusing on afterhours environments, curated club lineups, and festival stages where long-form vision and musical patience are valued over trends.
-  </p>
-
-  <div class="chips">
-    <span class="chip">DJ & Producer</span>
-    <span class="chip">Groove-led sets</span>
-    <span class="chip">Afterhours & festivals</span>
-    <span class="chip">Selective fly-ins</span>
-    <span class="chip">Long-form flow</span>
-  </div>
-</section>
-
-
-    <!-- BOOKINGS -->
-    <section class="glass sectionCard" id="global">
-      <div class="sectionTitle">
-        Bookings <span class="pill">Everywhere, but selective</span>
-      </div>
+    <section id="bio" class="glass sectionCard">
+      <div class="sectionTitle">Bio</div>
       <div class="hr"></div>
-
-      <p>
-        Available for paid guest appearances, afterhours slots, label showcases, and festival lineups — fly-in friendly and set-length flexible.
-      </p>
-
-      <div class="grid3">
-        <div class="stat glass">
-          <div class="label">Show formats</div>
-          <p class="value" style="font-size:16px;">Club / Afterhours</p>
-          <p class="hint">60–180 min • extended sets welcome</p>
-        </div>
-        <div class="stat glass">
-          <div class="label">Festival</div>
-          <p class="value" style="font-size:16px;">High impact</p>
-          <p class="hint">45–90 min • big-system flow</p>
-        </div>
-        <div class="stat glass">
-          <div class="label">Positioning</div>
-          <p class="value" style="font-size:16px;">Fly-in guest</p>
-          <p class="hint">selective • professional • consistent</p>
-        </div>
-      </div>
-
+      <p>Born in Valea Jiului and shaped by the underground culture of Bucharest, Swaylo P is a DJ and producer with a clear artistic direction rooted in groove, control, and long-form storytelling.</p>
+      <p>His evolution came through constant club exposure, building experience night after night and refining his sound through real dancefloor interaction. His sets sit in a modern club language where minimal, deep tech, and driving dancefloor rhythms connect naturally, with a strong focus on flow rather than peak-chasing.</p>
+      <p>He developed his identity through extended club sessions, sharpening crowd reading, pacing, endurance, and clean low-end discipline across real dancefloor environments.</p>
+      <p>Alongside his DJ work, Swaylo P is actively producing original music designed for club and afterhours systems, releasing material internationally and preparing a wider body of work for selective showcases, labels, and promoters.</p>
+      <p>Today, he operates with a selective fly-in approach, focusing on afterhours environments, curated club lineups, and festival stages where long-form vision and musical patience are valued over trends.</p>
       <div class="chips">
-        <span class="chip">Fee + travel options</span>
-        <span class="chip">Routing friendly</span>
-        <span class="chip">Press assets ready</span>
+        <span class="chip">DJ & Producer</span>
+        <span class="chip">Groove-led sets</span>
+        <span class="chip">Afterhours & festivals</span>
+        <span class="chip">Selective fly-ins</span>
+        <span class="chip">Long-form flow</span>
       </div>
     </section>
 
-    <!-- TECH RIDER -->
-    <section id="rider" class="glass sectionCard">
-      <div class="sectionTitle">
-        Tech Rider <span class="pill">Standard</span>
-      </div>
+    <section class="glass sectionCard" id="global">
+      <div class="sectionTitle">Bookings <span class="pill">Everywhere, but selective</span></div>
       <div class="hr"></div>
+      <p>Available for paid guest appearances, afterhours slots, label showcases, and festival lineups — fly-in friendly and set-length flexible.</p>
+      <div class="grid3">
+        <div class="stat glass"><div class="label">Show formats</div><p class="value" style="font-size:16px;">Club / Afterhours</p><p class="hint">60–180 min • extended sets welcome</p></div>
+        <div class="stat glass"><div class="label">Festival</div><p class="value" style="font-size:16px;">High impact</p><p class="hint">45–90 min • big-system flow</p></div>
+        <div class="stat glass"><div class="label">Positioning</div><p class="value" style="font-size:16px;">Fly-in guest</p><p class="hint">selective • professional • consistent</p></div>
+      </div>
+      <div class="chips"><span class="chip">Fee + travel options</span><span class="chip">Routing friendly</span><span class="chip">Press assets ready</span></div>
+    </section>
 
+    <section id="rider" class="glass sectionCard">
+      <div class="sectionTitle">Tech Rider <span class="pill">Flexible setup</span></div>
+      <div class="hr"></div>
+      <p class="muted">Swaylo P performs comfortably on both digital and vinyl setups, adapting easily to professional club-standard booths.</p>
       <div class="grid3">
         <div class="stat glass">
-          <div class="label">Preferred</div>
-          <p class="value" style="font-size:16px;">Pioneer setup</p>
-          <p class="hint">2x CDJ-3000 / CDJ-2000NXS2 + DJM-A9 / DJM-900NXS2</p>
+          <div class="label">Digital</div>
+          <p class="value" style="font-size:16px;">CDJs / Controllers</p>
+          <p class="hint">USB (Rekordbox) ready • modern digital booths welcome</p>
         </div>
-
         <div class="stat glass">
-          <div class="label">Minimum</div>
-          <p class="value" style="font-size:16px;">2x USB players</p>
-          <p class="hint">USB-capable decks + mixer with 3-band EQ</p>
+          <div class="label">Analog</div>
+          <p class="value" style="font-size:16px;">Turntables</p>
+          <p class="hint">vinyl-friendly • suitable for house / minimal sessions</p>
         </div>
-
         <div class="stat glass">
-          <div class="label">Booth</div>
-          <p class="value" style="font-size:16px;">Clear monitoring</p>
-          <p class="hint">booth monitor(s) + stable table + clean signal</p>
+          <div class="label">Mixer</div>
+          <p class="value" style="font-size:16px;">Analog or digital</p>
+          <p class="hint">professional mixer preferred • clean EQ, gain and booth signal</p>
         </div>
       </div>
-
       <div class="hr"></div>
       <ul class="bullet">
-        <li><b>Media:</b> Rekordbox USB(s). Backup USB recommended.</li>
-        <li><b>Booth:</b> independent booth volume preferred.</li>
-        <li><b>Setup notes:</b> if different, share details in advance — adjustments are usually easy.</li>
+        <li><b>Media:</b> USB (Rekordbox) and, when needed, vinyl.</li>
+        <li><b>Monitoring:</b> functional booth monitor(s) with stable, clear signal.</li>
+        <li><b>Setup:</b> comfortable on most club-standard configurations and adaptable in advance when needed.</li>
+        <li><b>Workflow:</b> professional, low-maintenance, and easy to coordinate with technical staff.</li>
       </ul>
+      <div class="chips">
+        <span class="chip">Digital & Vinyl</span>
+        <span class="chip">Club adaptable</span>
+        <span class="chip">Professional workflow</span>
+        <span class="chip">Minimal requirements</span>
+      </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="glass sectionCard">
-      <div class="sectionTitle">
-        Booking & Inquiries <span class="pill">Direct</span>
-      </div>
+      <div class="sectionTitle">Booking & Inquiries <span class="pill">Direct</span></div>
       <div class="hr"></div>
-
-      <p class="muted">Direct contact (booking / promo). Fast response.</p>
-
+      <p class="muted">Direct contact for booking and promo. Fast response.</p>
       <div class="grid3">
-        <div class="stat glass">
-          <div class="label">Email</div>
-          <p class="value" style="font-size:16px;">
-            <a href="mailto:v.patrikcosmin@gmail.com">v.patrikcosmin@gmail.com</a>
-          </p>
-          <p class="hint">booking / promo</p>
-        </div>
-
-        <div class="stat glass">
-          <div class="label">Phone / WhatsApp</div>
-          <p class="value" style="font-size:16px;">
-            <a href="tel:+40754308143">0040 754 308 143</a>
-          </p>
-          <p class="hint">international friendly</p>
-        </div>
-
-        <div class="stat glass">
-          <div class="label">Instagram</div>
-          <p class="value" style="font-size:16px;">
-            <a href="https://instagram.com/swaylo.p" target="_blank" rel="noopener">@swaylo.p</a>
-          </p>
-          <p class="hint">clips + updates</p>
-        </div>
+        <div class="stat glass"><div class="label">Email</div><p class="value" style="font-size:16px;"><a href="mailto:v.patrikcosmin@gmail.com">v.patrikcosmin@gmail.com</a></p><p class="hint">booking / promo</p></div>
+        <div class="stat glass"><div class="label">Phone / WhatsApp</div><p class="value" style="font-size:16px;"><a href="tel:+40754308143">0040 754 308 143</a></p><p class="hint">international friendly</p></div>
+        <div class="stat glass"><div class="label">Instagram</div><p class="value" style="font-size:16px;"><a href="https://instagram.com/swaylo.p" target="_blank" rel="noopener">@swaylo.p</a></p><p class="hint">clips + updates</p></div>
       </div>
-
       <div class="hr"></div>
-
       <div class="chips">
         <span class="chip">Artist: Swaylo P</span>
         <span class="chip">Real name: Patrik Vass</span>
         <a class="chip" href="https://instagram.com/deeperdubrecords" target="_blank" rel="noopener">Label: @deeperdubrecords</a>
-        <a class="chip" href="https://on.soundcloud.com/0drZGBaGMA1ukfWSLE" target="_blank" rel="noopener">Private showcase link</a>
+        <a class="chip" href="https://linktr.ee/patricianptk" target="_blank" rel="noopener">Linktree</a>
       </div>
     </section>
 
-    <footer class="glass">
-      <div style="padding: 12px 10px;">
-        © <span id="year"></span> Swaylo P • EPK • (Patrik Vass)
-      </div>
-    </footer>
+    <footer class="glass">© <span id="year"></span> Swaylo P • EPK • (Patrik Vass)</footer>
   </div>
 
   <script>
-    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Carousel
     const slidesEl = document.getElementById("slides");
-    const slideCount = slidesEl.children.length;
     const dotsEl = document.getElementById("dots");
     const prevBtn = document.getElementById("prev");
     const nextBtn = document.getElementById("next");
+    const frame = document.querySelector(".carouselFrame");
+    const slideCount = slidesEl ? slidesEl.children.length : 0;
     let idx = 0;
+    let autoplay;
 
     function renderDots(){
+      if(!dotsEl) return;
       dotsEl.innerHTML = "";
-      for(let i=0;i<slideCount;i++){
+      for(let i = 0; i < slideCount; i++){
         const b = document.createElement("button");
-        b.className = "dotBtn" + (i===idx ? " active":"");
-        b.setAttribute("aria-label","Go to slide " + (i+1));
+        b.className = "dotBtn" + (i === idx ? " active" : "");
+        b.type = "button";
+        b.setAttribute("aria-label", "Go to slide " + (i + 1));
         b.addEventListener("click", () => go(i));
         dotsEl.appendChild(b);
       }
     }
+
     function go(i){
+      if(!slidesEl || !slideCount) return;
       idx = (i + slideCount) % slideCount;
-      slidesEl.style.transform = "translateX(" + (-idx*100) + "%)";
-      [...dotsEl.children].forEach((d,di)=> d.classList.toggle("active", di===idx));
-    }
-    prevBtn.addEventListener("click", ()=> go(idx-1));
-    nextBtn.addEventListener("click", ()=> go(idx+1));
-    let autoplay = setInterval(()=> go(idx+1), 6500);
-    const frame = document.querySelector(".carouselFrame");
-    frame.addEventListener("mouseenter", ()=> clearInterval(autoplay));
-    frame.addEventListener("mouseleave", ()=> autoplay = setInterval(()=> go(idx+1), 6500));
-    renderDots(); go(0);
-
-    // Particles
-    const pWrap = document.getElementById("particles");
-    const count = window.matchMedia("(max-width: 768px)").matches ? 24 : 60;
-
-
-    function rand(min,max){ return Math.random()*(max-min)+min; }
-    function px(v){ return v.toFixed(1) + "px"; }
-
-    function buildParticles(){
-      while(pWrap.firstChild) pWrap.removeChild(pWrap.firstChild);
-
-      for(let i=0;i<count;i++){
-        const el = document.createElement("div");
-        el.className = "p";
-
-        const side = Math.random() < 0.5 ? "L" : "R";
-        const size = [2,3,4,6,8][Math.floor(rand(0,5))];
-        const y0 = rand(-40, window.innerHeight + 40);
-
-        const x0 = side === "L" ? rand(-60, 60) : rand(window.innerWidth - 60, window.innerWidth + 60);
-        const x1 = side === "L" ? rand(window.innerWidth * 0.18, window.innerWidth * 0.42) : rand(window.innerWidth * 0.58, window.innerWidth * 0.82);
-        const y1 = y0 + rand(-120, 120);
-
-        const dur = rand(5.0, 11.0);
-        const delay = rand(0, 6);
-        const scale = rand(0.9, 1.6);
-        const opacity = rand(0.14, 0.42);
-
-        el.style.width = size + "px";
-        el.style.height = size + "px";
-        el.style.setProperty("--x0", px(x0));
-        el.style.setProperty("--y0", px(y0));
-        el.style.setProperty("--x1", px(x1));
-        el.style.setProperty("--y1", px(y1));
-        el.style.setProperty("--dur", dur + "s");
-        el.style.setProperty("--s", scale);
-        el.style.setProperty("--o", opacity);
-        el.style.animationDelay = delay + "s";
-
-        // variety in glow color
-        const roll = Math.random();
-        if(roll < 0.25){
-          el.style.background = "radial-gradient(circle, rgba(255,59,212,.70), rgba(255,59,212,0))";
-        } else if(roll < 0.34){
-          el.style.background = "radial-gradient(circle, rgba(124,58,237,.65), rgba(124,58,237,0))";
-        }
-
-        pWrap.appendChild(el);
-      }
+      slidesEl.style.transform = "translateX(" + (-idx * 100) + "%)";
+      [...dotsEl.children].forEach((d, di) => d.classList.toggle("active", di === idx));
     }
 
-    buildParticles();
-    window.addEventListener("resize", buildParticles);
+    function startAutoplay(){
+      stopAutoplay();
+      autoplay = window.setInterval(() => go(idx + 1), 6500);
+    }
+
+    function stopAutoplay(){
+      if(autoplay) window.clearInterval(autoplay);
+    }
+
+    if(slideCount){
+      renderDots();
+      go(0);
+      startAutoplay();
+      prevBtn.addEventListener("click", () => go(idx - 1));
+      nextBtn.addEventListener("click", () => go(idx + 1));
+      frame.addEventListener("mouseenter", stopAutoplay);
+      frame.addEventListener("mouseleave", startAutoplay);
+    }
   </script>
 </body>
 </html>
