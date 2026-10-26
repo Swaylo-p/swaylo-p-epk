@@ -1,0 +1,44 @@
+SWAYLO P EPK — ASSET SOURCES
+
+Existing artist photographs, preserved without image editing:
+images/01.webp — https://swaylo-p.github.io/swaylo-p-epk/images/01.webp
+images/02.webp — https://swaylo-p.github.io/swaylo-p-epk/images/02.webp
+images/03.webp — https://swaylo-p.github.io/swaylo-p-epk/images/03.webp
+
+Featured set thumbnail:
+images/featured-set.jpg — https://i.ytimg.com/vi/b8NKJ09QazY/maxresdefault.jpg
+Video — https://www.youtube.com/watch?v=b8NKJ09QazY
+
+Official release artwork, downloaded from the linked label pages:
+images/releases/forever-loving-rhythmic-steps.jpg
+https://rhythmicsteps.bandcamp.com/album/swaylo-p-forever-loving-ep-rs033
+https://f4.bcbits.com/img/a0061512051_10.jpg
+
+images/releases/amphora-xvi-saraw.jpg
+https://saraw.bandcamp.com/album/amphora-xvi
+https://f4.bcbits.com/img/a1142622845_10.jpg
+
+images/releases/pareidolia-i-go-spastik.jpg
+https://gosipastik.bandcamp.com/album/spas005-pareidolia-i
+https://f4.bcbits.com/img/a3378070234_10.jpg
+
+images/releases/every-matter-aievea.jpg
+https://aievearecords.bandcamp.com/album/aie001-every-matter-ep
+https://f4.bcbits.com/img/a4208343676_10.jpg
+
+images/releases/common-ground-aievea.jpg
+https://aievearecords.bandcamp.com/album/aie002-common-ground-ep
+https://f4.bcbits.com/img/a0225426664_10.jpg
+
+images/releases/motion-theory-aievea.jpg
+https://aievearecords.bandcamp.com/album/aie003-motion-theory-ep
+https://f4.bcbits.com/img/a1745018192_10.jpg
+
+Type: Space Grotesk via Google Fonts, with system fallbacks.
+Favicon: code-native cross motif matching the page design.
+
+Release credits were checked against the official label catalogues in this project session.
+Root is the collaborator on Paramount; Saraw is the label.
+Paramount and Crush Out are compilation contributions, not solo EP releases.
+
+Asset retrieval date: 2026-10-26.
