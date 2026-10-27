@@ -1,0 +1,109 @@
+/* Recorded-set selector; all additions are confined to the listening section. */
+#sets .set-player,
+#sets .set-selector,
+#sets .set-row > span {
+  min-width: 0;
+}
+
+#sets #featured-video {
+  scroll-margin-top: 16px;
+}
+
+#sets .set-selector-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  margin-bottom: 12px;
+  color: var(--paper);
+}
+
+#sets .set-selector-label span {
+  color: var(--muted);
+  font-size: 10px;
+  letter-spacing: .03em;
+}
+
+#sets .set-row {
+  position: relative;
+  grid-template-columns: 23px minmax(0, 1fr) 18px;
+  gap: 12px;
+  min-height: 76px;
+  padding: 18px 12px;
+  transition: background .18s ease;
+}
+
+#sets .set-row::before {
+  content: "";
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  left: 0;
+  width: 2px;
+  background: transparent;
+}
+
+#sets .set-row[aria-current="true"] {
+  background: rgba(182, 162, 215, .08);
+}
+
+#sets .set-row[aria-current="true"]::before {
+  background: var(--accent);
+}
+
+#sets .set-row[aria-current="true"] .set-number,
+#sets .set-row[aria-current="true"] .set-name,
+#sets .set-row[aria-current="true"] > svg {
+  color: var(--accent);
+}
+
+#sets .set-row:hover {
+  background: rgba(182, 162, 215, .05);
+}
+
+#sets .set-row:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  z-index: 1;
+}
+
+#sets .set-name,
+#sets .set-meta {
+  overflow-wrap: anywhere;
+}
+
+#sets .set-number {
+  padding-top: 3px;
+}
+
+#sets .set-row > svg {
+  width: 16px;
+  height: 16px;
+}
+
+@media (max-width: 800px) {
+  #sets .set-selector-label {
+    margin-top: 4px;
+  }
+}
+
+@media (max-width: 700px) {
+  #sets .set-row {
+    min-height: 82px;
+    padding-block: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #sets .set-row {
+    transition: none;
+  }
+}
+
+@media print {
+  #sets .set-selector,
+  #sets .set-status {
+    display: none !important;
+  }
+}

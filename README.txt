@@ -1,15 +1,13 @@
 SWAYLO P — GITHUB PAGES EPK
 
-LAVENDER THEME + LATEST SET UPDATE - 27 OCTOBER 2026
-This update uses only IMG_2229.HEIC, converted to browser-compatible formats.
-The featured set is Tactik Podcast Series #11, Sunset DJ Set by the Lake.
-Earlier recordings remain available in the set list.
-The lavender, indigo and warm off-white palette follows the supplied photograph.
-Upload the updated index.html, images/swaylo-p-portrait.webp,
-images/swaylo-p-portrait.jpg, images/favicon.svg and press/swaylo-p-press-kit.zip.
-The full package includes the other existing site assets as well.
-Remove images/01.webp, images/02.webp and images/03.webp from the GitHub repository
-if those older photographs should no longer be hosted there.
+IN-PAGE MUSIC PLAYERS UPDATE - 27 OCTOBER 2026
+The recorded-set selector switches between all six YouTube sessions inside the page.
+Selected discography and Aievea releases include official Bandcamp players;
+Funky Way includes the official Beatport preview player.
+
+Upload index.html, styles/, scripts/ and README.txt from this update.
+The full package also contains the existing images/, press/ and other site files.
+Keep the single supplied portrait and the existing lavender theme.
 
 This is a static website: HTML, CSS, JavaScript and local assets.
 No npm install, build step, API key or server-side code is required.
@@ -30,7 +28,8 @@ python -m http.server 4173 --bind 127.0.0.1
 Then open http://127.0.0.1:4173/.
 
 EDITING
-The CSS and JavaScript are contained in index.html.
+Shared page CSS and the navigation/clipboard JavaScript are in index.html.
+styles/ and scripts/ contain the recorded-set selector and release-player components.
 The artist photograph appears once in the hero, without cropping.
 images/swaylo-p-portrait.webp is the lightweight browser version;
 images/swaylo-p-portrait.jpg is the full-resolution press download.
@@ -46,7 +45,13 @@ The page publishes no fixed fee or unconfirmed bookings.
 
 EXTERNAL SERVICES
 The typeface loads from Google Fonts with a system-font fallback.
-The featured video loads a YouTube privacy-enhanced player only after the visitor presses play.
+The selected recording loads a YouTube privacy-enhanced player after a visitor presses play or chooses a set.
+Switching recordings replaces the earlier player.
+Bandcamp and Beatport players load when a listener opens a release panel.
+Only one release panel stays open; closing it removes its player and stops its audio.
+Native EP track lists let listeners choose songs; Beatport provides store previews.
+With JavaScript disabled, native details panels and direct provider links remain available;
+Bandcamp and Beatport interactive controls themselves require JavaScript.
 Direct YouTube links remain available, including when JavaScript is disabled or embedding is restricted.
 
 This package prepares the site for GitHub Pages; it does not publish a commit to GitHub.

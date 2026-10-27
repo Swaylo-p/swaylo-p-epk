@@ -50,3 +50,13 @@ Root is the collaborator on Paramount; Saraw is the label.
 Paramount and Crush Out are compilation contributions, not solo EP releases.
 
 Asset retrieval date: 2026-10-26.
+
+In-page music players, verified 2026-10-27:
+Bandcamp official EmbeddedPlayer service; audio remains hosted by Bandcamp.
+Forever Loving album=2091072155; Paramount track=2524984960;
+Crush Out track=4106744683; Every Matter album=3617507079;
+Common Ground album=2716549356; Motion Theory album=4146037359.
+Compilation players target Swaylo's specific tracks, not the compilation's first track.
+Beatport official preview player: https://embed.beatport.com/?id=5634302&type=release
+All six recorded sessions use the YouTube privacy-enhanced embed service.
+No audio or video is downloaded or rehosted in this package.
