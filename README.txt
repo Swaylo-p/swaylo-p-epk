@@ -1,5 +1,16 @@
 SWAYLO P — GITHUB PAGES EPK
 
+LAVENDER THEME + LATEST SET UPDATE - 27 OCTOBER 2026
+This update uses only IMG_2229.HEIC, converted to browser-compatible formats.
+The featured set is Tactik Podcast Series #11, Sunset DJ Set by the Lake.
+Earlier recordings remain available in the set list.
+The lavender, indigo and warm off-white palette follows the supplied photograph.
+Upload the updated index.html, images/swaylo-p-portrait.webp,
+images/swaylo-p-portrait.jpg, images/favicon.svg and press/swaylo-p-press-kit.zip.
+The full package includes the other existing site assets as well.
+Remove images/01.webp, images/02.webp and images/03.webp from the GitHub repository
+if those older photographs should no longer be hosted there.
+
 This is a static website: HTML, CSS, JavaScript and local assets.
 No npm install, build step, API key or server-side code is required.
 
@@ -20,11 +31,13 @@ Then open http://127.0.0.1:4173/.
 
 EDITING
 The CSS and JavaScript are contained in index.html.
-The existing original photographs are kept as images/01.webp, 02.webp and 03.webp.
-The page features 01.webp and 03.webp; all three are included in the press download.
+The artist photograph appears once in the hero, without cropping.
+images/swaylo-p-portrait.webp is the lightweight browser version;
+images/swaylo-p-portrait.jpg is the full-resolution press download.
+The source IMG_2229.HEIC remains outside this package.
 Release artwork is stored in images/releases/.
 Artist biography and technical summary are in press/.
-If you change the bio, technical summary or press photos, rebuild press/swaylo-p-press-kit.zip to match.
+If you change the bio, technical summary or the artist photograph, rebuild press/swaylo-p-press-kit.zip to match.
 
 BOOKING CONTACT
 Cristina Croitoru is the main PR/booking contact.

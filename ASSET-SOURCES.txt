@@ -1,13 +1,21 @@
 SWAYLO P EPK — ASSET SOURCES
 
-Existing artist photographs, preserved without image editing:
-images/01.webp — https://swaylo-p.github.io/swaylo-p-epk/images/01.webp
-images/02.webp — https://swaylo-p.github.io/swaylo-p-epk/images/02.webp
-images/03.webp — https://swaylo-p.github.io/swaylo-p-epk/images/03.webp
+Artist photograph supplied by Patrik:
+Source: IMG_2229.HEIC, provided locally on 2026-10-27.
+images/swaylo-p-portrait.webp - browser version, 2000 x 1500.
+images/swaylo-p-portrait.jpg - full-resolution JPEG, 4032 x 3024.
+Both files show the same photograph. Format conversion preserves the full frame;
+there is no retouching, generative editing or colour grading.
+The page uses this photograph once, in the hero, and offers the JPEG as a download.
+The press ZIP contains this photograph and the two text documents.
 
-Featured set thumbnail:
-images/featured-set.jpg — https://i.ytimg.com/vi/b8NKJ09QazY/maxresdefault.jpg
-Video — https://www.youtube.com/watch?v=b8NKJ09QazY
+Featured set:
+https://www.youtube.com/watch?v=6XyJfN6gxa4
+Sunset DJ Set by the Lake | Tactik Podcast Series #11 | Swaylo P
+Published by Tactik on 2026-10-12; duration 53:19.
+The featured cover uses HTML/CSS typography and gradients to preserve the
+single-portrait layout. The YouTube video loads only after pressing play.
+The earlier Coworkperativa recording remains linked in More recorded sets.
 
 Official release artwork, downloaded from the linked label pages:
 images/releases/forever-loving-rhythmic-steps.jpg
