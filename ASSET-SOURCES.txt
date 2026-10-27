@@ -13,8 +13,8 @@ Featured set:
 https://www.youtube.com/watch?v=6XyJfN6gxa4
 Sunset DJ Set by the Lake | Tactik Podcast Series #11 | Swaylo P
 Published by Tactik on 2026-10-12; duration 53:19.
-The featured cover uses HTML/CSS typography and gradients to preserve the
-single-portrait layout. The YouTube video loads only after pressing play.
+The video preview uses an HTML/CSS shaded background and a centered play
+control to preserve the single-portrait layout. The YouTube video loads only after pressing play.
 The earlier Coworkperativa recording remains linked in More recorded sets.
 
 Official release artwork, downloaded from the linked label pages:

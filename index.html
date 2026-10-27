@@ -93,14 +93,11 @@
     .set-layout{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:35px}
     .video-stage{position:relative;aspect-ratio:16/9;background:#2b2d3a;overflow:hidden}
     .video-stage .video-poster{position:absolute;inset:0}
-    .set-cover{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;overflow:hidden;background:radial-gradient(ellipse at 50% 120%,#655075 0,transparent 60%),repeating-radial-gradient(ellipse at 50% 115%,transparent 0,transparent 26px,rgba(236,231,223,.08) 27px,transparent 28px),#252735}
-    .set-cover-name{font-size:clamp(36px,7vw,96px);font-weight:500;letter-spacing:-.075em;line-height:1;color:var(--paper);transform:translateY(-28px)}
-    .set-cover-episode{position:absolute;bottom:22px;left:22px;color:#c9c1d3;font:clamp(8px,.9vw,11px)/1.5 var(--mono);letter-spacing:.1em}
-    .set-cover+.video-launch .play-icon{transform:translateY(clamp(34px,calc(3.5vw + 16px),72px))}
-    .set-cover+.video-launch:hover .play-icon{transform:translateY(clamp(34px,calc(3.5vw + 16px),72px)) scale(1.06)}
+    .set-cover{overflow:hidden;background:linear-gradient(145deg,#23252e,#1a1c24)}
     .video-launch{position:absolute;z-index:1;inset:0;display:flex;align-items:center;justify-content:center;width:100%;border:0;background:transparent;color:var(--paper)}
-    .video-launch::before{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.58),transparent 70%)}
+    .video-launch::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.06)}
     .play-icon{position:relative;z-index:1;display:grid;place-items:center;width:68px;height:68px;border-radius:50%;border:1px solid #ece7df;background:rgba(24,26,33,.25);transition:background .18s,transform .18s}
+    .video-launch:focus-visible .play-icon{outline:2px solid var(--accent);outline-offset:6px}
     .play-icon svg{width:22px;height:22px;fill:currentColor;stroke:none;margin-left:4px}
     .video-launch:hover .play-icon{background:var(--accent);border-color:var(--accent);color:var(--ink);transform:scale(1.06)}
     .video-badge{position:absolute;top:18px;left:19px;border:1px solid #bfb2ce;padding:5px 9px;font:9px var(--mono);text-transform:uppercase;letter-spacing:.08em}
@@ -228,7 +225,7 @@
   </style>
   <link rel="stylesheet" href="styles/releases.css?v=artwork-2">
   <link rel="stylesheet" href="styles/sets.css">
-  <link rel="stylesheet" href="styles/aievea.css">
+  <link rel="stylesheet" href="styles/aievea.css?v=spacing-2">
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Swaylo P","alternateName":"Patrik Vass","jobTitle":"DJ and music producer","url":"https://swaylo-p.github.io/swaylo-p-epk/","image":"https://swaylo-p.github.io/swaylo-p-epk/images/swaylo-p-portrait.jpg","homeLocation":{"@type":"Place","name":"Bucharest, Romania"},"sameAs":["https://soundcloud.com/pswaylo","https://www.instagram.com/swaylo.p/","https://www.beatport.com/artist/swaylo-p/1462597","https://pswaylo.bandcamp.com/","https://ra.co/dj/swaylop"]}
   </script>
@@ -286,9 +283,8 @@
         <div class="set-layout">
           <div class="set-player">
             <div class="video-stage" id="featured-video">
-              <div class="video-poster set-cover" aria-hidden="true"><span class="set-cover-name">TACTIK</span><span class="set-cover-episode">PODCAST SERIES / 11</span></div>
+              <div class="video-poster set-cover" aria-hidden="true"></div>
               <a class="video-launch" id="video-launch" data-youtube-id="6XyJfN6gxa4" href="https://www.youtube.com/watch?v=6XyJfN6gxa4" target="_blank" rel="noopener noreferrer" aria-label="Watch Swaylo P's latest set: Tactik Podcast Series 11">
-                <span class="video-badge">Latest set / Swaylo P</span>
                 <span class="play-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m6 3 15 9-15 9Z"/></svg></span>
               </a>
             </div>

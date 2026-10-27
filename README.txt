@@ -1,12 +1,14 @@
 SWAYLO P — GITHUB PAGES EPK
 
-AIEVEA BRANDING + FUNKY WAY ARTWORK UPDATE - 27 OCTOBER 2026
+AIEVEA SPACING + CLEAN VIDEO PREVIEW UPDATE - 27 OCTOBER 2026
 The recorded-set selector switches between all six YouTube sessions inside the page.
 Selected discography and Aievea releases include official Bandcamp players;
 Funky Way includes the official Beatport preview player.
 
 Upload index.html, styles/, scripts/, images/ and the updated text documents.
 Aievea uses its official Bandcamp banner, paper texture and ink artwork.
+The paper panel has inner spacing around its artwork and text.
+The video preview uses a subtly shaded background and a centered play control.
 Funky Way now shows its official deeperdub cover.
 Bandcamp EP players use their native Standard layout with a small cover,
 track list and section-matched purple or teal link colours.

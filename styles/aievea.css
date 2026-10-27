@@ -5,6 +5,9 @@
   --aievea-muted: #62655f;
   --aievea-teal: #34676d;
   --aievea-line: #c7c2b7;
+  --aievea-panel-outer: var(--gutter);
+  --aievea-panel-inner: clamp(18px, 2.5vw, 40px);
+  --aievea-panel-block: clamp(22px, 2.5vw, 34px);
   --paper: var(--aievea-paper);
   --ink: var(--aievea-ink);
   --accent: var(--aievea-teal);
@@ -48,8 +51,19 @@
 #aievea > .container {
   position: relative;
   z-index: 1;
+  padding-inline: calc(var(--aievea-panel-outer) + var(--aievea-panel-inner));
+  padding-block: var(--aievea-panel-block);
+  background: transparent;
+}
+
+#aievea > .container::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset-block: 0;
+  inset-inline: var(--aievea-panel-outer);
+  pointer-events: none;
   background: rgba(239, 233, 223, .95);
-  background-clip: content-box;
 }
 
 #aievea .aievea-brand {
@@ -176,6 +190,12 @@
   margin-top: 40px;
 }
 
+@media (min-width: 701px) and (max-width: 1080px) {
+  #aievea .release-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 800px) {
   #aievea {
     padding-block: 42px 55px;
@@ -193,6 +213,8 @@
 
 @media (max-width: 700px) {
   #aievea {
+    --aievea-panel-outer: 8px;
+    --aievea-panel-inner: clamp(10px, 3vw, 18px);
     padding-block: 38px 45px;
   }
 
@@ -237,11 +259,13 @@
   }
 
   #aievea::before,
-  #aievea::after {
+  #aievea::after,
+  #aievea > .container::before {
     display: none;
   }
 
   #aievea > .container {
+    padding: 0;
     background: none;
   }
 
