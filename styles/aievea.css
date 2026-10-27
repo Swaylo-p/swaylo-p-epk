@@ -1,0 +1,259 @@
+/* Aievea's original Bandcamp artwork and palette. Load after releases.css. */
+#aievea {
+  --aievea-paper: #efe9df;
+  --aievea-ink: #353638;
+  --aievea-muted: #62655f;
+  --aievea-teal: #34676d;
+  --aievea-line: #c7c2b7;
+  --paper: var(--aievea-paper);
+  --ink: var(--aievea-ink);
+  --accent: var(--aievea-teal);
+  --paper-line: var(--aievea-line);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding-block: 52px 70px;
+  background: var(--aievea-paper);
+  color: var(--aievea-ink);
+}
+
+/* Only the image's outer edges are exposed; its baked-in central logo is excluded. */
+#aievea::before,
+#aievea::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset-block: 0;
+  width: clamp(90px, 22vw, 330px);
+  pointer-events: none;
+  background-image: url("../images/aievea/aievea-bandcamp-background.jpg");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+#aievea::before {
+  left: 0;
+  background-position: left top;
+  -webkit-mask-image: linear-gradient(to right, #000 5%, transparent 100%);
+  mask-image: linear-gradient(to right, #000 5%, transparent 100%);
+}
+
+#aievea::after {
+  right: 0;
+  background-position: right top;
+  -webkit-mask-image: linear-gradient(to left, #000 5%, transparent 100%);
+  mask-image: linear-gradient(to left, #000 5%, transparent 100%);
+}
+
+#aievea > .container {
+  position: relative;
+  z-index: 1;
+  background: rgba(239, 233, 223, .95);
+  background-clip: content-box;
+}
+
+#aievea .aievea-brand {
+  max-width: 975px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+#aievea .aievea-brand .section-index {
+  display: block;
+  margin: 0;
+  color: var(--aievea-muted);
+  font-size: 10px;
+  line-height: 1.6;
+  letter-spacing: .09em;
+}
+
+#aievea .aievea-wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 975px;
+  margin: 5px auto 0;
+  overflow: hidden;
+  font-size: 0;
+  line-height: 1;
+  letter-spacing: normal;
+}
+
+#aievea .aievea-wordmark img {
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  min-width: 460px;
+  max-width: none;
+  height: auto;
+  mix-blend-mode: darken;
+}
+
+#aievea .aievea-intro {
+  display: block;
+  max-width: 975px;
+  margin: 6px auto 43px;
+}
+
+#aievea .aievea-copy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 20px 60px;
+  max-width: none;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+#aievea .aievea-copy p + p {
+  margin: 0;
+  color: var(--aievea-muted);
+  font-size: 14px;
+}
+
+#aievea .aievea-copy .text-link {
+  grid-column: 1 / -1;
+  justify-self: center;
+  margin-top: 5px;
+  color: var(--aievea-teal);
+  font-size: 11px;
+}
+
+#aievea .release-art {
+  background: #e2dcd1;
+}
+
+#aievea .release-year,
+#aievea .release-credit,
+#aievea .release-note,
+#aievea .listen-count,
+#aievea .aievea-bottom {
+  color: var(--aievea-muted);
+}
+
+#aievea .release-overlay {
+  background: var(--aievea-ink);
+  color: var(--aievea-paper);
+}
+
+#aievea .release:hover .release-overlay,
+#aievea .release-art:focus-visible .release-overlay {
+  background: var(--aievea-teal);
+  color: #fff;
+}
+
+#aievea .release-listen,
+#aievea .aievea-bottom {
+  border-color: var(--aievea-line);
+}
+
+#aievea .release-listen > summary {
+  color: var(--aievea-ink);
+}
+
+#aievea .release-listen[open] > summary,
+#aievea .release-listen > summary:hover,
+#aievea .release-store,
+#aievea .aievea-bottom a {
+  color: var(--aievea-teal);
+}
+
+#aievea .text-link:hover,
+#aievea .release-store:hover,
+#aievea .aievea-bottom a:hover,
+#aievea .release h3 a:hover {
+  color: #245157;
+}
+
+#aievea a:focus-visible,
+#aievea summary:focus-visible,
+#aievea button:focus-visible {
+  outline: 2px solid var(--aievea-teal);
+  outline-offset: 5px;
+}
+
+#aievea .aievea-bottom {
+  margin-top: 40px;
+}
+
+@media (max-width: 800px) {
+  #aievea {
+    padding-block: 42px 55px;
+  }
+
+  #aievea .aievea-copy {
+    gap: 20px 32px;
+    font-size: 14px;
+  }
+
+  #aievea .aievea-copy p + p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 700px) {
+  #aievea {
+    padding-block: 38px 45px;
+  }
+
+  #aievea .aievea-brand .section-index {
+    font-size: 9px;
+    letter-spacing: .05em;
+  }
+
+  #aievea .aievea-wordmark {
+    margin-top: 11px;
+  }
+
+  #aievea .aievea-intro {
+    margin-top: 12px;
+    margin-bottom: 34px;
+  }
+
+  #aievea .aievea-copy {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 15px;
+    font-size: 15px;
+  }
+
+  #aievea .aievea-copy p + p {
+    font-size: 13px;
+  }
+
+  #aievea .aievea-copy .text-link {
+    justify-self: start;
+    margin-top: 5px;
+  }
+
+  #aievea .aievea-bottom {
+    margin-top: 30px;
+  }
+}
+
+@media print {
+  #aievea {
+    background: #fff;
+    padding-block: 25px;
+  }
+
+  #aievea::before,
+  #aievea::after {
+    display: none;
+  }
+
+  #aievea > .container {
+    background: none;
+  }
+
+  #aievea .aievea-wordmark {
+    max-width: 600px;
+  }
+
+  #aievea .aievea-wordmark img {
+    mix-blend-mode: normal;
+  }
+
+  #aievea .aievea-intro {
+    margin-bottom: 25px;
+  }
+}
